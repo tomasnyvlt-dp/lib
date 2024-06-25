@@ -1,6 +1,6 @@
 {
   "name": "@tomasnyvlt-dp/lib",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "type": "module",
   "license": "MIT",
   "main": "dist/index.umd.js",
