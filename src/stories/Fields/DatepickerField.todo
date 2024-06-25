@@ -1,0 +1,57 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks';
+import { DataDrivenForm } from '@src/index';
+import { StorybookProviderDecorator } from '@src/StorybookProviderDecorator';
+import DatePicker from '@src/components/fields/DatePicker';
+import { getFieldWrapper } from '@src/stories/getFieldWrapper';
+
+<Meta
+  title="Fields / DatepickerField"
+  component={DataDrivenForm}
+  decorators={[StorybookProviderDecorator]}
+  tags={['autodocs']}
+  argTypes={{
+    label: { control: 'text' },
+    isDisabled: { control: 'boolean' },
+    initialDate: { control: 'date' },
+    minDate: { control: 'date' },
+    maxDate: { control: 'date' },
+  }}
+/>
+
+# DatepickerField
+
+<Canvas>
+  <Story
+    name="DatePicker"
+    args={{
+      label: 'Datum první registrace',
+      isDisabled: false,
+      initialDate: new Date().toISOString().split('T')[0],
+      minDate: new Date().toISOString().split('T')[0],
+      maxDate: new Date().toISOString().split('T')[0],
+    }}
+  >
+    {(args) => (
+      <DataDrivenForm
+        schema={getFieldWrapper({
+          title: 'DatePicker',
+          sectionContent: [
+            {
+              component: 'date-picker',
+              name: 'vehicle.leadinDate',
+              label: args.label,
+              isDisabled: args.isDisabled,
+              initialDate: args.initialDate,
+              minDate: args.minDate,
+              maxDate: args.maxDate,
+            }
+          ],
+        })}
+      />
+    )}
+  </Story>
+</Canvas>
+
+## Component Props
+
+<ArgsTable of={DatePicker} />

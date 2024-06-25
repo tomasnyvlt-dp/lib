@@ -1,0 +1,48 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/blocks";
+import { DataDrivenForm } from "@src/index";
+import { StorybookProviderDecorator } from "@src/StorybookProviderDecorator";
+import ButtonField from "@src/components/fields/ButtonField";
+import { getFieldWrapper } from "@src/stories/getFieldWrapper";
+
+<Meta
+  title="Fields / ButtonField"
+  component={DataDrivenForm}
+  decorators={[StorybookProviderDecorator]}
+  tags={["autodocs"]}
+  argTypes={{
+    label: { control: "text" },
+    variant: { control: { type: "select", options: ["solid", "outline", "clear", "gradient"] } },
+  }}
+/>
+
+# ButtonField
+
+<Canvas>
+  <Story
+    name="ButtonField"
+    args={{
+      label: "Button Field",
+      variant: "gradient",
+    }}
+  >
+    {(args) => (
+      <DataDrivenForm
+        schema={getFieldWrapper({
+          title: 'ButtonField',
+          sectionContent: [
+            {
+              component: 'button-field',
+              name: 'storybook.ButtonField',
+              label: args.label,
+              variant: args.variant
+            },
+          ],
+        })}
+      />
+    )}
+  </Story>
+</Canvas>
+
+## Component Props
+
+<ArgsTable of={ButtonField} />

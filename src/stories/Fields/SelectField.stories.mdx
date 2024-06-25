@@ -1,0 +1,54 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/blocks";
+import { DataDrivenForm } from "@src/index";
+import { StorybookProviderDecorator } from "@src/StorybookProviderDecorator";
+import SelectField from "@src/components/fields/Select2Field";
+import { getFieldWrapper } from "@src/stories/getFieldWrapper";
+
+<Meta
+  title="Fields / SelectField"
+  component={DataDrivenForm}
+  decorators={[StorybookProviderDecorator]}
+  tags={["autodocs"]}
+  argTypes={{
+    label: { control: "text" },
+    options: { control: "object" },
+    isDisabled: { control: "boolean" },
+  }}
+/>
+
+# SelectField
+
+<Canvas>
+  <Story
+    name="SelectField"
+    args={{
+      label: 'Select Field',
+      options: [
+        { label: 'Option 1', value: '1' },
+        { label: 'Option 2', value: '2' },
+      ],
+      isDisabled: false,
+    }}
+  >
+    {(args) => (
+      <DataDrivenForm
+        schema={getFieldWrapper({
+          title: 'SelectField',
+          sectionContent: [
+            {
+              component: 'select-field',
+              name: 'storybook.selectField',
+              label: args.label,
+              options: args.options,
+              isDisabled: args.isDisabled,
+            },
+          ],
+        })}
+      />
+    )}
+  </Story>
+</Canvas>
+
+## Component Props
+
+<ArgsTable of={SelectField} />

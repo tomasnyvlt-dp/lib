@@ -1,0 +1,51 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/blocks";
+import { DataDrivenForm } from "@src/index";
+import { StorybookProviderDecorator } from "@src/StorybookProviderDecorator";
+import MaskedPatternField from "@src/components/fields/MaskedPatternField";
+import { getFieldWrapper } from "@src/stories/getFieldWrapper";
+
+<Meta
+  title="Fields / MaskedPatternField"
+  component={DataDrivenForm}
+  decorators={[StorybookProviderDecorator]}
+  tags={["autodocs"]}
+  argTypes={{
+    label: { control: "text" },
+    pattern: { control: "text" },
+    isDisabled: { control: "boolean" },
+  }}
+/>
+
+# MaskedPatternField
+
+<Canvas>
+  <Story
+    name="MaskedPatternField"
+    args={{
+      label: 'Masked Pattern Field',
+      pattern: '\\d*',
+      isDisabled: false,
+    }}
+  >
+    {(args) => (
+      <DataDrivenForm
+        schema={getFieldWrapper({
+          title: 'MaskedPatternField',
+          sectionContent: [
+            {
+              component: 'masked-pattern-field',
+              name: 'storybook.maskedPatternField',
+              label: args.label,
+              pattern: args.pattern,
+              isDisabled: args.isDisabled,
+            },
+          ],
+        })}
+      />
+    )}
+  </Story>
+</Canvas>
+
+## Component Props
+
+<ArgsTable of={MaskedPatternField} />

@@ -1,0 +1,57 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/blocks";
+import { DataDrivenForm } from "@src/index";
+import { StorybookProviderDecorator } from "@src/StorybookProviderDecorator";
+import RangeField from "@src/components/fields/RangeField";
+import { getFieldWrapper } from "@src/stories/getFieldWrapper";
+
+<Meta
+  title="Fields / RangeField"
+  component={DataDrivenForm}
+  decorators={[StorybookProviderDecorator]}
+  tags={["autodocs"]}
+  argTypes={{
+    label: { control: "text" },
+    min: { control: "number" },
+    max: { control: "number" },
+    step: { control: "number" },
+    isDisabled: { control: "boolean" },
+  }}
+/>
+
+# RangeField
+
+<Canvas>
+  <Story
+    name="RangeField"
+    args={{
+      label: "Obchodní sleva na povinné ručení",
+      min: 0,
+      max: 100,
+      step: 1,
+      isDisabled: false
+    }}
+  >
+    {(args) => (
+      <DataDrivenForm
+        schema={getFieldWrapper({
+          title: "RangeField",
+          sectionContent: [
+            {
+              component: "range-field",
+              name: "storybook.RangeField",
+              label: args.label,
+              min: args.min,
+              max: args.max,
+              step: args.step,
+              isDisabled: args.isDisabled
+            },
+          ],
+        })}
+      />
+    )}
+  </Story>
+</Canvas>
+
+## Component Props
+
+<ArgsTable of={RangeField} />
