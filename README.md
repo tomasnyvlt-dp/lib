@@ -12,7 +12,7 @@ Pro instalaci je nutné vytvořit .npmrc soubor, který bude obsahovat autentiza
 
 ```bash
 @tomasnyvlt-dp:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=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
+//npm.pkg.github.com/:_authToken=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
 ```
 
 ### [Online dokumentace](https://tomasnyvlt-dp.github.io/lib/?path=/docs/contents-box--docs)
