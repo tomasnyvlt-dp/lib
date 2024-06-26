@@ -1,15 +1,20 @@
 # Tomáš Nývlt - diplomová práce
 
-Knihovna komponent pro dynamicky generované webové formuláře pomocí JSON schématu
+# Knihovna komponent pro dynamicky generované webové formuláře pomocí JSON schématu.
 
 ## Instalace
 
 ```bash
-npm install @tomasnyvlt/tomasnyvlt-dp
+yarn add @tomasnyvlt-dp/lib
 ```
 
+Pro instalaci je nutné vytvořit .npmrc soubor, který bude obsahovat autentizační klíč (Github bez klíče nedovolí stáhnout balíček).
 
-### [Online dokumentace](https://tomasnyvlt.github.io/tomasnyvlt-dp/?path=/docs/a-introduction--docs)
+```bash
+@tomasnyvlt-dp:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=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
+```
 
-### [Ukázka použití](https://github.com/tomasnyvlt/diplomova-prace-usecase)
+### [Online dokumentace](https://tomasnyvlt-dp.github.io/lib/?path=/docs/contents-box--docs)
+### [Ukázka použití](https://github.com/tomasnyvlt-dp/usecase)
 
